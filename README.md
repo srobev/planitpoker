@@ -23,7 +23,7 @@ PlanIT Poker is a collaborative tool for teams to estimate project complexity us
 
 ## Installation and Usage
 
-1. Clone the repository: `git clone https://github.com/your/repository.git`
+1. Clone the repository: `git clone https://github.com/srobev/planitpoker.git`
 2. Navigate to the project directory: `cd planit-poker-clone`
 3. Install dependencies: `npm install`
 4. Start the server: `node server.js`
