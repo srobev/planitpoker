@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>PlanIT Poker Clone</title>
+		<link rel="stylesheet" href="styles.css">
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>PlanIT Poker Clone</h1>
+			<div class="username-section" id="usernameSection">
+				<input type="text" id="usernameInput" placeholder="Enter your username">
+				<button id="setUsernameButton" onclick="setUsername()">Set Username</button>
+			</div>
+			<div id="votingSection" class="voting-section" style="display:none;">
+				<div class="vote-buttons">
+					<button class="vote-button" onclick="vote(1)">1</button>
+					<button class="vote-button" onclick="vote(2)">2</button>
+					<button class="vote-button" onclick="vote(3)">3</button>
+					<button class="vote-button" onclick="vote(5)">5</button>
+					<button class="vote-button" onclick="vote(8)">8</button>
+					<button class="vote-button" onclick="vote(13)">13</button>
+					<button class="vote-button" onclick="vote(21)">21</button>
+				</div>
+			</div>
+			<div class="moderator-section" id="moderatorSection">
+				<input type="password" id="moderatorPassword" placeholder="Enter moderator password">
+				<button id="moderatorButton" onclick="toggleModerator()">Moderator Mode</button>
+			</div>
+			<div class="moderator-section">
+				<button id="removeModeratorButton" class="moderator-action-button" style="display:none;" onclick="removeModerator()">Remove Moderator</button>
+				<button id="flipCardsButton" class="flip-button" style="display:none;" onclick="flipCards()">Flip Cards</button>
+				<button id="nextRowButton" class="next-row-button" style="display:none;" onclick="nextRow()">Next Row</button>
+				<button id="resetVotesButton" class="reset-button" style="display:none;" onclick="resetVotes()">Reset Votes</button>
+			</div>
+			<div id="currentRowSection" class="current-row-section" style="display:none;">
+				<h3>Currently voting:</h4>
+				<h3><span id="currentRow">-</span></h3>
+				<h4>Mode Result: <span id="currentModeValue">-</span></h4>
+			</div>
+			<hr>
+			<div id="results" class="results-section" style="display:none;">
+				<h3>Voting Results</h3>
+				<table id="resultsTable">
+					<thead>
+						<tr>
+							<th>Username</th>
+							<th>Vote</th>
+						</tr>
+					</thead>
+					<tbody id="resultsBody">
+						<!-- Results will be populated here -->
+					</tbody>
+				</table>
+				<div id="statistics">
+					<p><strong>Average Value:</strong> <span id="averageValue">-</span></p>
+					<p><strong>Mode Value:</strong> <span id="modeValue">-</span></p>
+				</div>
+			</div>
+			<div id="allRowsSection" class="results-section" style="display:none;">
+				<h2>Tasks</h2>
+				<table id="allRowsTable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Score</th>
+						</tr>
+					</thead>
+					<tbody id="allRowsBody">
+						<!-- All rows and mode results will be populated here -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<textarea id="votesEditor" rows="10" cols="50" style="display: none;"></textarea><br>
+		<button id="saveButton" style="display: none;" onclick="saveText()">Save</button>
+
+		<script>type="text/javascript" src="script.js"></script>
+	</body>
+</html>
